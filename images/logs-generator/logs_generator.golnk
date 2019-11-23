@@ -1,1 +1,1 @@
-k8s.io/kubernetes/test/images/logs-generator
+k8s.io/kubernetes/test/images/agnhost/logs-generator

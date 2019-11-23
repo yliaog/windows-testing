@@ -12,12 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM BASEIMAGE
+ARG BASE_IMAGE=microsoft/windowsservercore:1803
+FROM $BASE_IMAGE
 
 ENV chocolateyUseWindowsCompression false
+
 RUN powershell -Command \
     Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')); \
     choco feature disable --name showDownloadProgress
+
 RUN powershell -Command \
     choco install apache-httpd --version 2.4.38 -y; \
     choco install php --version 7.2.14 -y --params '"/ThreadSafe "'

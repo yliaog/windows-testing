@@ -15,6 +15,7 @@
 ARG BASE_IMAGE=e2eteam/busybox:1.29
 FROM $BASE_IMAGE
 
+USER ContainerAdministrator
 RUN powershell -Command "\
     wget -uri 'https://iperf.fr/download/windows/iperf-2.0.9-win64.zip' -OutFile 'C:\iperf.zip';\
     Expand-Archive -Path C:\iperf.zip -DestinationPath C:\ -Force;\

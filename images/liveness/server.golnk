@@ -1,1 +1,1 @@
-k8s.io/kubernetes/test/images/liveness
+k8s.io/kubernetes/test/images/agnhost/liveness

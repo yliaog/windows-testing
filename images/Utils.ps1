@@ -219,8 +219,8 @@ function BaseImage
 
 
 $BaseImages = @(
-    BaseImage -ImageName "microsoft/windowsservercore:1803" -Suffix "1803"
-    BaseImage -ImageName "mcr.microsoft.com/windows/servercore:ltsc2019" -Suffix "1809"
+    #BaseImage -ImageName "mcr.microsoft.com/windows/servercore:ltsc2019" -Suffix "1809"
+    BaseImage -ImageName "mcr.microsoft.com/windows/servercore:1909" -Suffix "1909"
 )
 
 
@@ -284,7 +284,7 @@ $Images = @(
     DockerImage -Name "redis" -ImageBase "busybox" -Versions "3.2.9-alpine"
     DockerImage -Name "resource-consumer" -Versions "1.5"
     DockerImage -Name "resource-consumer-controller"
-    DockerImage -Name "rethinkdb" -Version "1.16.0_1" -ImageBase "busybox"
+    #DockerImage -Name "rethinkdb" -Version "1.16.0_1" -ImageBase "busybox"
     DockerImage -Name "sample-apiserver" -Versions "1.10"
     DockerImage -Name "serve-hostname" -Versions "1.1"
     DockerImage -Name "webhook" -Versions "1.15v1"

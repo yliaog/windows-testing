@@ -1,1 +1,1 @@
-k8s.io/kubernetes/test/images/nettest
+k8s.io/kubernetes/test/images/agnhost/nettest

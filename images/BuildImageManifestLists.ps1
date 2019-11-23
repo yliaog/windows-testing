@@ -13,9 +13,9 @@
 # limitations under the License.
 
 Param(
-    [string]$Repository = "e2eteam",
+    [string]$Repository = "gcr.io/gke-windows-testing",
     [bool]$Recreate = $true,
-    [bool]$PushToDocker = $false
+    [bool]$PushToDocker = $true
  )
 
 $VerbosePreference = "continue"

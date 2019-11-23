@@ -1,1 +1,1 @@
-k8s.io/kubernetes/test/images/entrypoint-tester
+k8s.io/kubernetes/test/images/agnhost/entrypoint-tester
