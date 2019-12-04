@@ -219,7 +219,7 @@ function BaseImage
 
 
 $BaseImages = @(
-    #BaseImage -ImageName "mcr.microsoft.com/windows/servercore:ltsc2019" -Suffix "1809"
+    BaseImage -ImageName "mcr.microsoft.com/windows/servercore:ltsc2019" -Suffix "1809"
     BaseImage -ImageName "mcr.microsoft.com/windows/servercore:1909" -Suffix "1909"
 )
 
@@ -258,13 +258,13 @@ $Images = @(
     DockerImage -Name "dnsutils" -ImageBase "busybox" -Versions "1.2"
     DockerImage -Name "echoserver" -ImageBase "busybox" -Versions "2.2"
     DockerImage -Name "entrypoint-tester"
-    DockerImage -Name "etcd" -Versions "v3.3.10", "3.3.10"
+    DockerImage -Name "etcd" -Versions "v3.3.15", "3.3.15"
     DockerImage -Name "fakegitserver"
     DockerImage -Name "gb-frontend" -Versions "v6"
     DockerImage -Name "gb-redisslave" -Versions "v3"
     DockerImage -Name "hazelcast-kubernetes" -Versions "3.8_1" -ImageBase "java"
     DockerImage -Name "hostexec" -Versions "1.1" -ImageBase "busybox"
-    DockerImage -Name "httpd" -Versions @("2.4.38-alpine", "2.4.39-alpine")
+    DockerImage -Name "httpd" -Versions @("2.4.38-alpine", "2.4.39-alpine") -ImageBase "busybox"
     DockerImage -Name "iperf" -ImageBase "busybox"
     DockerImage -Name "jessie-dnsutils" -ImageBase "busybox"  -Versions "1.1"
     DockerImage -Name "kitten" -ImageBase "test-webserver"
@@ -288,4 +288,5 @@ $Images = @(
     DockerImage -Name "sample-apiserver" -Versions "1.10"
     DockerImage -Name "serve-hostname" -Versions "1.1"
     DockerImage -Name "webhook" -Versions "1.15v1"
+    DockerImage -Name "agnhost" -ImageBase "busybox" -Versions "2.6"
 )

@@ -16,7 +16,7 @@ ARG BASE_IMAGE=microsoft/windowsservercore:1803
 FROM $BASE_IMAGE
 
 ENV chocolateyUseWindowsCompression false
-
+USER ContainerAdministrator
 RUN powershell -Command \
     Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')); \
     choco feature disable --name showDownloadProgress
@@ -35,5 +35,5 @@ COPY httpd.conf /Users/ContainerAdministrator/AppData/Roaming/Apache24/conf/http
 COPY index.html /Users/ContainerAdministrator/AppData/Roaming/Apache24/htdocs/index.html
 
 EXPOSE 80
-USER ContainerAdministrator
+
 ENTRYPOINT ["c:/Users/ContainerAdministrator/AppData/Roaming/Apache24/bin/httpd.exe"]

@@ -15,8 +15,8 @@
 ARG BASE_IMAGE=microsoft/windowsservercore:1803
 FROM $BASE_IMAGE
 
-ADD https://github.com/etcd-io/etcd/releases/download/v3.3.10/etcd-v3.3.10-windows-amd64.zip /
-RUN powershell -Command "Expand-Archive -Path C:\etcd-v3.3.10-windows-amd64.zip -DestinationPath C:\usr\local -Force ;\
-Rename-Item -Path C:\usr\local\etcd-v3.3.10-windows-amd64 -NewName C:\usr\local\bin" &&\
-del C:\etcd-v3.3.10-windows-amd64.zip
+ADD https://github.com/etcd-io/etcd/releases/download/v3.3.15/etcd-v3.3.15-windows-amd64.zip /
+RUN powershell -Command "Expand-Archive -Path C:\etcd-v3.3.15-windows-amd64.zip -DestinationPath C:\usr\local -Force ;\
+Rename-Item -Path C:\usr\local\etcd-v3.3.15-windows-amd64 -NewName C:\usr\local\bin" &&\
+del C:\etcd-v3.3.15-windows-amd64.zip
 ENTRYPOINT ["/usr/local/bin/etcd.exe"]
