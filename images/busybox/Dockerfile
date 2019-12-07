@@ -17,13 +17,11 @@ FROM gcr.io/gke-windows-testing/curl:1803-1909 AS prep
 FROM $BASE_IMAGE
 
 COPY --from=prep /curl/ /curl
-WORKDIR /busybox
-ADD busybox.exe busybox.exe
-ADD https://github.com/diegocr/netcat/raw/master/nc.exe /busybox/nc.exe
+ADD busybox.exe /bin/busybox.exe
+ADD https://github.com/diegocr/netcat/raw/master/nc.exe /bin/nc.exe
 USER ContainerAdministrator
-RUN FOR /f "tokens=*" %i IN ('busybox --list') DO mklink C:\busybox\%i.exe busybox.exe
-RUN setx /M PATH "C:\busybox;C:\curl\;%PATH%"
-RUN mklink /D C:\bin C:\busybox
+RUN FOR /f "tokens=*" %i IN ('C:\bin\busybox --list') DO mklink C:\bin\%i.exe C:\bin\busybox.exe
+RUN setx /M PATH "C:\bin;C:\curl\;%PATH%"
 RUN mkdir C:\tmp
 USER ContainerUser
 ENTRYPOINT ["cmd.exe", "/s", "/c"]
